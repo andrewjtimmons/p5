@@ -3,6 +3,7 @@ var points = []
 function setup() {
   // Sets the screen to be 640 pixels wide and 360 pixels high
   createCanvas(displayWidth, displayHeight);
+  // create random points for stars
   for (var i = 0; i < 10000; i++) {
     newPoint = [random(width), random(height)]
     points.push(newPoint)

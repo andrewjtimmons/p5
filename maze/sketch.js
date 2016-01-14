@@ -44,7 +44,8 @@ function draw() {
     smooth();
     noFill();
     strokeCap(actStrokeCap);
-
+    mouseX = random(width)
+    mouseY = random(height)
     randomSeed(actRandomSeed);
 
     for (var gridY=0; gridY<tileCount; gridY++) {

@@ -97,5 +97,5 @@ function draw() {
 }
 
 function keyReleased(){
-  if (key == DELETE || key == BACKSPACE) background(255);
+  if (key == "DELETE" || key == "BACKSPACE") background(100);
 }

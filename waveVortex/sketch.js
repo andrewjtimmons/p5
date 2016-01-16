@@ -111,36 +111,13 @@ function mousePressed() {
 
 
 function keyReleased() {
-  if (key == 's' || key == 'S') saveFrame(timestamp()+"_##.png");
-  if (key == DELETE || key == BACKSPACE) background(255);
+  if (key == 's' || key == 'S') saveCanvas(Date.now()+".png");
 
   if (key == '1') filled = false;
   if (key == '2') filled = true;
-
-  // ------ pdf export ------
-  // press 'r' to start pdf recording and 'e' to stop it
-  // ONLY by pressing 'e' the pdf is saved to disk!
-  if (key =='r' || key =='R') {
-    if (recordPDF == false) {
-      beginRecord(PDF, timestamp()+".pdf");
-      println("recording started");
-      recordPDF = true;
-      stroke(0, 50);
-    }
-  }
-  else if (key == 'e' || key =='E') {
-    if (recordPDF) {
-      println("recording stopped");
-      endRecord();
-      recordPDF = false;
-      background(255);
-    }
-  }
 
   // switch draw loop on/off
   if (key == 'f' || key == 'F') freeze = !freeze;
   if (freeze == true) noLoop();
   else loop();
 }
-
-

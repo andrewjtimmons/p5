@@ -12,6 +12,10 @@ function setup() {
   mySound.setVolume(0.1);
 }
 
+function draw() {
+    console.log(currentTime())
+}
+
 // play sound on mouse press over canvas
 function mousePressed() {
   if (mouseX < width && mouseY < height && mouseX > 0 && mouseY > 0) {

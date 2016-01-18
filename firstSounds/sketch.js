@@ -13,7 +13,7 @@ function setup() {
 }
 
 function draw() {
-    console.log(currentTime())
+    console.log(mySound.currentTime())
 }
 
 // play sound on mouse press over canvas

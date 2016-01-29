@@ -1,0 +1,15 @@
+
+
+12 December 2005
+
+After many requests for Jed's source code I finally figured out a *simple* way to get it off the Apple ][+ without transcribing it. The old Apple has an audio-out for saving data to cassette tape--the data is encoded in tones that sound like a traditional modem. I plugged the old Apple's audio-out into my PowerBook and recorded the noise. Then I loaded this into my Virtual II emulator (http://www.xs4all.nl/~gp/VirtualII) as a virtual cassette. Perfect. 
+
+For your enjoyment I've exported the code as an AIF audio cassette, a regular disk image, and plain text. Have fun running and tweaking as you see fit. Although some spots of code are embarrassingly inefficient, or are commented out entirely, I've made no effort to clean it up and have left everything exactly as it was during filming. You'll also notice that the emulation falls slightly out of sync with the music (which is not provided--go out and buy the record yourself!). Despite best efforts to scale the timing variables appropriately I was thrown off by numerous immutable factors. Minor post-production edits were required to keep it all together. I don't think this diminishes from the project's "hardcore" status. If you have a problem with that you can go fuck yourself :)
+
+
+Stewart Smith
+STEWDIO
+http://stewdio.org
+
+
+

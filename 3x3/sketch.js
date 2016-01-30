@@ -1,23 +1,26 @@
+var increase = 1
+
 function setup() {
-  createCanvas(3,3);
+  pixelDensity(1)
+  createCanvas(100,100);
   background(0);
   noStroke();
   //noLoop();
+
 }
 
 function draw() {
+  for (var y = 0; y < height*pixelDensity(); y += pixelDensity()) {
+    for (var x = 0; x < width*pixelDensity(); x += pixelDensity()) {
+      //loadPixels();
+      var colorRGBA = get(x,y)
 
-
-  for (var y = 0; y < height; y += 1) {
-    for (var x = 0; x < width; x += 1) {
-      var c = get(x,y)
-      set(x,y,color(c[0]+1,c[1]+1,c[2]+1));
+      var newColor = color(colorRGBA[0]+increase,colorRGBA[1]+increase,colorRGBA[2]+increase, 255)
+      set(x,y,newColor);
       updatePixels();
-      //console.log(x,y)
-      //console.log(get(x,y))
+
     }
   }
-
-
-
+  console.log("drawLoop completed")
 }
+

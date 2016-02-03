@@ -1,41 +1,62 @@
 // the goal of this prototype is to have a box
 // iterate over 256**3 colors
 // this is just a toy for a future project
+"use strict";
 
-var increase = 1
+var colorValueIncrease = 1
 var density = 10
 var fillColor
+var rect1
 
 function setup() {
   pixelDensity(density)
-  createCanvas(100,100);
+  createCanvas(100, 100);
   background(0);
   //noStroke();
   //noLoop();
   frameRate(200000)
-
-  fillColor = color(0,0,0, 255)
-
+  fillColor = color(0, 0, 0, 255)
+  rect1 = new colorRectangle(fillColor, 0, 0, 99, 99, colorValueIncrease)
 }
 
 function draw() {
-  fill(fillColor)
-  rect(0, 0, 99, 99)
-  increaseFillColor(increase, fillColor)
+  fill(rect1.currentColor)
+  rect1.increaseFillColor()
+  rect(rect1.xCoord, rect1.yCoord, rect1.rectWidth, rect1.rectHeight)
 }
 
-function increaseFillColor(increase, fillColor) {
-  // increase the first color channel by one.  If channel
-  // is now >= 255 then increment the next color channel.
-  fillColor.levels[0] += increase
+class colorRectangle {
+  // Class for storing rectangle data.
+  // args:
+  //    baseColor: the initial color for the rectangle.
+  //    xCoord: the x coordinate of the rectangles top left corner.
+  //    yCoord: the y coordinate of the rectangles top left corner.
+  //    rectWidth:  the width of the rectangle.
+  //    rectHeight: the height of the rectangle.
+  //    colorValueIncrease: the amount to increase the color values by.
+  constructor(baseColor, xCoord, yCoord, rectWidth, rectHeight, colorValueIncrease) {
+    this.currentColor = baseColor;
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.rectWidth = rectWidth;
+    this.rectHeight = rectHeight;
+    this.colorValueIncrease = colorValueIncrease
+  }
 
-  if (fillColor.levels[0] > 255) {
-    fillColor.levels[0] = 0
-    fillColor.levels[1] += increase
-    noLoop()
+  increaseFillColor(increase, fillColor) {
+    // increase the first color channel by one.  If that channel
+    // is now >= 255 then increment the next color channel.  Repeat for second
+    // and third channel.
+    this.currentColor.levels[0] += this.colorValueIncrease
+
+    if (this.currentColor.levels[0] > 255) {
+      this.currentColor.levels[0] = 0
+      this.currentColor.levels[1] += this.colorValueIncrease
+    }
+    if (this.currentColor.levels[1] > 255) {
+      this.currentColor.levels[1] = 0
+      this.currentColor.levels[2] += this.colorValueIncrease
   }
-  if (fillColor.levels[1] > 255) {
-    fillColor.levels[1] = 0
-    fillColor.levels[2] += increase
-  }
+}
+
 }

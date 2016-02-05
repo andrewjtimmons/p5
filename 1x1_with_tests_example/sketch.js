@@ -25,17 +25,6 @@ function draw() {
   rect(rect1.xCoord, rect1.yCoord, rect1.rectWidth, rect1.rectHeight)
 }
 
-function mockColor(red, green, blue, alpha) {
-    // Mock of the color class from p5
-    // Using 'use strict' to get class syntax was
-    // causing errors in beforeEach, hence the old style js class.
-    this.levels = [];
-    this.levels[0] = red;
-    this.levels[1] = green;
-    this.levels[2] = blue;
-    this.levels[3] = alpha;
-}
-
 function colorRectangle(baseColor, xCoord, yCoord, rectWidth, rectHeight, colorValueIncrease) {
   // Class for storing rectangle data.
   // args:
@@ -45,6 +34,8 @@ function colorRectangle(baseColor, xCoord, yCoord, rectWidth, rectHeight, colorV
   //    rectWidth:  the width of the rectangle.
   //    rectHeight: the height of the rectangle.
   //    colorValueIncrease: the amount to increase the color values by.
+  // attrs:
+  //    numColorsSoFar: count of how many different colors a rectangle has been.
 
     this.currentColor = baseColor;
     this.xCoord = xCoord;
@@ -52,13 +43,16 @@ function colorRectangle(baseColor, xCoord, yCoord, rectWidth, rectHeight, colorV
     this.rectWidth = rectWidth;
     this.rectHeight = rectHeight;
     this.colorValueIncrease = colorValueIncrease
+    this.numColorsSoFar = 1 //starts as blakc
 }
 
-colorRectangle.prototype.increaseFillColor = function(increase, fillColor) {
+colorRectangle.prototype.increaseFillColor = function() {
   // increase the first color channel by one.  If that channel
   // is now >= 255 then increment the next color channel.  Repeat for second
-  // and third channel.
+  // and third channel
+
   this.currentColor.levels[0] += this.colorValueIncrease
+  this.numColorsSoFar += 1
 
   if (this.currentColor.levels[0] > 255) {
     this.currentColor.levels[0] = 0
@@ -67,6 +61,9 @@ colorRectangle.prototype.increaseFillColor = function(increase, fillColor) {
   if (this.currentColor.levels[1] > 255) {
     this.currentColor.levels[1] = 0
     this.currentColor.levels[2] += this.colorValueIncrease
+  }
+  if (this.currentColor.levels[2] > 255) {
+    this.currentColor.levels[2] = 0
   }
 }
 

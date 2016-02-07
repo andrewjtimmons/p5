@@ -6,8 +6,7 @@
 var colorValueIncrease = 1
 var density = 10
 var fillColor
-var rect1
-var rect2
+
 var rectangleArray
 
 function setup() {
@@ -17,8 +16,8 @@ function setup() {
   noStroke();
   //noLoop();
   frameRate(60);
-  rect1 = new colorRectangle(color(0, 0, 0, 255), 0, 0, 99, 99, colorValueIncrease, true)
-  rect2 = new colorRectangle(color(0, 0, 0, 255), 100, 0, 99, 99, colorValueIncrease, false)
+  var rect1 = new colorRectangle(color(0, 0, 0, 255), 0, 0, 99, 99, colorValueIncrease, true)
+  var rect2 = new colorRectangle(color(0, 0, 0, 255), 100, 0, 99, 99, colorValueIncrease, false)
   rectangleArray = [rect1, rect2]
 }
 
@@ -32,7 +31,6 @@ function draw() {
       rectangleArray[index-1].increamentNextRectangle = false
       r.increaseFillColor()
     }
-    console.log(r.currentColor)
     //draw it
     fill(r.currentColor)
     rect(r.xCoord, r.yCoord, r.rectWidth, r.rectHeight)

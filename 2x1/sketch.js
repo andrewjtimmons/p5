@@ -6,7 +6,6 @@
 var colorValueIncrease = 1
 var density = 10
 var fillColor
-
 var rectangleArray
 
 function setup() {

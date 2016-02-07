@@ -3,21 +3,44 @@
 // and then increment the box next to it.
 "use strict";
 
-var colorValueIncrease = 1
+var colorValueIncrease = 127
 var density = 10
 var fillColor
 var rectangleArray
 
 function setup() {
   pixelDensity(density)
-  createCanvas(800, 800);
+  createCanvas(400, 400);
   background(0);
   noStroke();
-  //noLoop();
   frameRate(60);
-  var rect1 = new colorRectangle(color(0, 0, 0, 255), 0, 0, 199, 199, colorValueIncrease, true)
-  var rect2 = new colorRectangle(color(0, 0, 0, 255), 100, 0, 99, 99, colorValueIncrease, false)
-  rectangleArray = [rect1, rect2]
+  // the number at the end of rect is the x,y coordinate of the rectangle.
+  // first row of rectangles
+  var rect11 = new colorRectangle(color(0, 0, 0, 255), 0, 0, 100, 100, colorValueIncrease, true)
+  var rect21 = new colorRectangle(color(0, 0, 0, 255), 100, 0, 100, 100, colorValueIncrease, false)
+  var rect31 = new colorRectangle(color(0, 0, 0, 255), 200, 0, 100, 100, colorValueIncrease, false)
+  var rect41 = new colorRectangle(color(0, 0, 0, 255), 300, 0, 100, 100, colorValueIncrease, false)
+  // second row of rectangles
+  var rect12 = new colorRectangle(color(0, 0, 0, 255), 0, 100, 100, 100, colorValueIncrease, false)
+  var rect22 = new colorRectangle(color(0, 0, 0, 255), 100, 100, 100, 100, colorValueIncrease, false)
+  var rect32 = new colorRectangle(color(0, 0, 0, 255), 200, 100, 100, 100, colorValueIncrease, false)
+  var rect42 = new colorRectangle(color(0, 0, 0, 255), 300, 100, 100, 100, colorValueIncrease, false)
+  // third row of rectangles
+  var rect13 = new colorRectangle(color(0, 0, 0, 255), 0, 200, 100, 100, colorValueIncrease, false)
+  var rect23 = new colorRectangle(color(0, 0, 0, 255), 100, 200, 100, 100, colorValueIncrease, false)
+  var rect33 = new colorRectangle(color(0, 0, 0, 255), 200, 200, 100, 100, colorValueIncrease, false)
+  var rect43 = new colorRectangle(color(0, 0, 0, 255), 300, 200, 100, 100, colorValueIncrease, false)
+  // fourth row of rectangles
+  var rect14 = new colorRectangle(color(0, 0, 0, 255), 0, 300, 100, 100, colorValueIncrease, false)
+  var rect24 = new colorRectangle(color(0, 0, 0, 255), 100, 300, 100, 100, colorValueIncrease, false)
+  var rect34 = new colorRectangle(color(0, 0, 0, 255), 200, 300, 100, 100, colorValueIncrease, false)
+  var rect44 = new colorRectangle(color(0, 0, 0, 255), 300, 300, 100, 100, colorValueIncrease, false)
+
+  // put all rectangles in an array in order for looping over
+  rectangleArray = [rect11, rect21, rect31, rect41,
+                    rect12, rect22, rect32, rect42,
+                    rect13, rect23, rect33, rect43,
+                    rect14, rect24, rect34, rect43]
 }
 
 function draw() {
@@ -30,7 +53,6 @@ function draw() {
       rectangleArray[index-1].increamentNextRectangle = false
       r.increaseFillColor()
     }
-    console.log(r.currentColor)
     //draw it
     fill(r.currentColor)
     rect(r.xCoord, r.yCoord, r.rectWidth, r.rectHeight)

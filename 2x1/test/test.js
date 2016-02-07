@@ -70,7 +70,7 @@ describe('colorRectangle Unit Tests', function() {
         done();
     });
 
-    it('should increamentNextRectangle set to true after calling increaseFillColor 16777216 times (256 to the power of 3)', function(done) {
+    it('should have increamentNextRectangle set to true after calling increaseFillColor 16777216 times (256 to the power of 3)', function(done) {
         expect(testRect.increamentNextRectangle).to.equal(false)
         for (var count = 0; count < 16777216; count += 1) {
             testRect.increaseFillColor()

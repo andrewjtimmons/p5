@@ -1,4 +1,3 @@
-
 var expect = require("chai").expect;
 var colorRectangle = require('../sketch').colorRectangle;
 
@@ -48,6 +47,7 @@ describe('colorRectangle Unit Tests', function() {
     });
 
     it('should have levels of 255 for red, and 0 for green and blue after calling increaseFillColor 255 times', function(done) {
+        //it is 256^1 - 1 because it starts with the color black
         for (var count = 0; count < 255; count += 1) {
             testRect.increaseFillColor()
         }
@@ -59,6 +59,7 @@ describe('colorRectangle Unit Tests', function() {
     });
 
     it('should have levels of 255 for red, and 255 for green and blue after calling increaseFillColor 65535 (256**2 -1) times', function(done) {
+        //it is 256^2 - 1 because it starts with the color black
         for (var count = 0; count < 65535; count += 1) {
             testRect.increaseFillColor()
         }
@@ -70,7 +71,7 @@ describe('colorRectangle Unit Tests', function() {
     });
 
     it('should have levels of 255 for red, green, and blue after calling increaseFillColor 16777215 times (256 to the power of 3 - 1)', function(done) {
-        //it is 256^3 -1 because it starts with the color black
+        //it is 256^3 - 1 because it starts with the color black
         for (var count = 0; count < 16777215; count += 1) {
             testRect.increaseFillColor()
         }

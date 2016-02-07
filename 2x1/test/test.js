@@ -70,16 +70,15 @@ describe('colorRectangle Unit Tests', function() {
         done();
     });
 
-    it('should have levels of 255 for red, green, and blue after calling increaseFillColor 16777215 times (256 to the power of 3 - 1)', function(done) {
-        //it is 256^3 - 1 because it starts with the color black
-        for (var count = 0; count < 16777215; count += 1) {
+    it('should increamentNextRectangle set to true after calling increaseFillColor 16777216 times (256 to the power of 3)', function(done) {
+        expect(testRect.increamentNextRectangle).to.equal(false)
+        for (var count = 0; count < 16777216; count += 1) {
             testRect.increaseFillColor()
         }
-        expect(testRect.currentColor.levels[0]).to.equal(255)
-        expect(testRect.currentColor.levels[1]).to.equal(255)
-        expect(testRect.currentColor.levels[2]).to.equal(255)
-        expect(testRect.numColorsSoFar).to.equal(16777216)
+        expect(testRect.increamentNextRectangle).to.equal(true)
         done();
     });
+
+
 
 });

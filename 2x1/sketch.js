@@ -16,6 +16,7 @@ function setup() {
   background(0);
   noStroke();
   //noLoop();
+  frameRate(60);
   rect1 = new colorRectangle(color(0, 0, 0, 255), 0, 0, 99, 99, colorValueIncrease, true)
   rect2 = new colorRectangle(color(0, 0, 0, 255), 100, 0, 99, 99, colorValueIncrease, false)
   rectangleArray = [rect1, rect2]

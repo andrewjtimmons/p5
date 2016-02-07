@@ -7,22 +7,28 @@ var colorValueIncrease = 1
 var density = 10
 var fillColor
 var rect1
+var rect2
 
 function setup() {
   pixelDensity(density)
-  createCanvas(100, 100);
+  createCanvas(200, 100);
   background(0);
-  //noStroke();
+  noStroke();
   //noLoop();
   frameRate(200000)
   fillColor = color(0, 0, 0, 255)
   rect1 = new colorRectangle(fillColor, 0, 0, 99, 99, colorValueIncrease)
+  rect2 = new colorRectangle(fillColor, 100, 0, 99, 99, colorValueIncrease)
 }
 
 function draw() {
   fill(rect1.currentColor)
   rect1.increaseFillColor()
   rect(rect1.xCoord, rect1.yCoord, rect1.rectWidth, rect1.rectHeight)
+
+  fill(rect2.currentColor)
+  rect2.increaseFillColor()
+  rect(rect2.xCoord, rect2.yCoord, rect2.rectWidth, rect2.rectHeight)
 }
 
 function colorRectangle(baseColor, xCoord, yCoord, rectWidth, rectHeight, colorValueIncrease) {

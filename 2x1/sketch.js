@@ -53,17 +53,15 @@ function colorRectangle(baseColor, xCoord, yCoord, rectWidth, rectHeight, colorV
   //    numColorsSoFar: count of how many different colors a rectangle has been.
   //    incrementNextRectangle: Tells the program it is time to increment the
   //        next rectangles fill color.
-
-    this.currentColor = baseColor;
-    this.xCoord = xCoord;
-    this.yCoord = yCoord;
-    this.rectWidth = rectWidth;
-    this.rectHeight = rectHeight;
-    this.colorValueIncrease = colorValueIncrease;
-    this.alwaysIncrement = alwaysIncrement
-    this.numColorsSoFar = 1; //starts as black
-    this.increamentNextRectangle = false;
-
+  this.currentColor = baseColor;
+  this.xCoord = xCoord;
+  this.yCoord = yCoord;
+  this.rectWidth = rectWidth;
+  this.rectHeight = rectHeight;
+  this.colorValueIncrease = colorValueIncrease;
+  this.alwaysIncrement = alwaysIncrement
+  this.numColorsSoFar = 1; //starts as black
+  this.increamentNextRectangle = false;
 }
 
 colorRectangle.prototype.increaseFillColor = function() {

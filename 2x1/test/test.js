@@ -80,5 +80,4 @@ describe('colorRectangle Unit Tests', function() {
     });
 
 
-
 });

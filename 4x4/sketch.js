@@ -16,31 +16,31 @@ function setup() {
   frameRate(60);
   // the number at the end of rect is the x,y coordinate of the rectangle.
   // first row of rectangles
-  var rect11 = new colorRectangle(color(0, 0, 0, 255), 0, 0, 100, 100, colorValueIncrease, true)
-  var rect21 = new colorRectangle(color(0, 0, 0, 255), 100, 0, 100, 100, colorValueIncrease, false)
-  var rect31 = new colorRectangle(color(0, 0, 0, 255), 200, 0, 100, 100, colorValueIncrease, false)
-  var rect41 = new colorRectangle(color(0, 0, 0, 255), 300, 0, 100, 100, colorValueIncrease, false)
+  var rect11 = new colorRectangle(getRandomColorRGB(), 0, 0, 100, 100, colorValueIncrease, true)
+  var rect21 = new colorRectangle(getRandomColorRGB(), 100, 0, 100, 100, colorValueIncrease, false)
+  var rect31 = new colorRectangle(getRandomColorRGB(), 200, 0, 100, 100, colorValueIncrease, false)
+  var rect41 = new colorRectangle(getRandomColorRGB(), 300, 0, 100, 100, colorValueIncrease, false)
   // second row of rectangles
-  var rect12 = new colorRectangle(color(0, 0, 0, 255), 0, 100, 100, 100, colorValueIncrease, false)
-  var rect22 = new colorRectangle(color(0, 0, 0, 255), 100, 100, 100, 100, colorValueIncrease, false)
-  var rect32 = new colorRectangle(color(0, 0, 0, 255), 200, 100, 100, 100, colorValueIncrease, false)
-  var rect42 = new colorRectangle(color(0, 0, 0, 255), 300, 100, 100, 100, colorValueIncrease, false)
+  var rect12 = new colorRectangle(getRandomColorRGB(), 0, 100, 100, 100, colorValueIncrease, false)
+  var rect22 = new colorRectangle(getRandomColorRGB(), 100, 100, 100, 100, colorValueIncrease, false)
+  var rect32 = new colorRectangle(getRandomColorRGB(), 200, 100, 100, 100, colorValueIncrease, false)
+  var rect42 = new colorRectangle(getRandomColorRGB(), 300, 100, 100, 100, colorValueIncrease, false)
   // third row of rectangles
-  var rect13 = new colorRectangle(color(0, 0, 0, 255), 0, 200, 100, 100, colorValueIncrease, false)
-  var rect23 = new colorRectangle(color(0, 0, 0, 255), 100, 200, 100, 100, colorValueIncrease, false)
-  var rect33 = new colorRectangle(color(0, 0, 0, 255), 200, 200, 100, 100, colorValueIncrease, false)
-  var rect43 = new colorRectangle(color(0, 0, 0, 255), 300, 200, 100, 100, colorValueIncrease, false)
+  var rect13 = new colorRectangle(getRandomColorRGB(), 0, 200, 100, 100, colorValueIncrease, false)
+  var rect23 = new colorRectangle(getRandomColorRGB(), 100, 200, 100, 100, colorValueIncrease, false)
+  var rect33 = new colorRectangle(getRandomColorRGB(), 200, 200, 100, 100, colorValueIncrease, false)
+  var rect43 = new colorRectangle(getRandomColorRGB(), 300, 200, 100, 100, colorValueIncrease, false)
   // fourth row of rectangles
-  var rect14 = new colorRectangle(color(0, 0, 0, 255), 0, 300, 100, 100, colorValueIncrease, false)
-  var rect24 = new colorRectangle(color(0, 0, 0, 255), 100, 300, 100, 100, colorValueIncrease, false)
-  var rect34 = new colorRectangle(color(0, 0, 0, 255), 200, 300, 100, 100, colorValueIncrease, false)
-  var rect44 = new colorRectangle(color(0, 0, 0, 255), 300, 300, 100, 100, colorValueIncrease, false)
+  var rect14 = new colorRectangle(getRandomColorRGB(), 0, 300, 100, 100, colorValueIncrease, false)
+  var rect24 = new colorRectangle(getRandomColorRGB(), 100, 300, 100, 100, colorValueIncrease, false)
+  var rect34 = new colorRectangle(getRandomColorRGB(), 200, 300, 100, 100, colorValueIncrease, false)
+  var rect44 = new colorRectangle(getRandomColorRGB(), 300, 300, 100, 100, colorValueIncrease, false)
 
   // put all rectangles in an array in order for looping over
   rectangleArray = [rect11, rect21, rect31, rect41,
                     rect12, rect22, rect32, rect42,
                     rect13, rect23, rect33, rect43,
-                    rect14, rect24, rect34, rect43]
+                    rect14, rect24, rect34, rect44]
 }
 
 function draw() {
@@ -105,6 +105,15 @@ colorRectangle.prototype.increaseFillColor = function() {
     this.increamentNextRectangle = true;
   }
 }
+
+function getRandomColorRGB() {
+  // generates random values for rgb and returns a p5 color object
+  var r = Math.round(random(0,255))
+  var g = Math.round(random(0,255))
+  var b = Math.round(random(0,255))
+  return color(r,g,b,255)
+}
+
 
 // This is raise an error in the console, but is needed for our testing.
 // The error it fires on index.html will not effect the sketch or cause failure.

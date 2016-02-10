@@ -1,14 +1,61 @@
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.20/p5.js"></script>
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <!--
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.21/addons/p5.sound.min.js"</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.21/addons/p5.dom.min.js"</script>
   -->
-  <script language="javascript" type="text/javascript" src="sketch.js"></script>
-  <style> body {padding: 0; margin: 0;} </style>
+  <style>
+    iframe{ border: none; }
+    body {
+      background-color: black;
+      color: white;
+    }
+  </style>
 </head>
 <body>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12 text-left">
+      <h1>After the universe is gone</h1>
+      <h4>An exploration of the dimensionality of color</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-uppercase text-left">
+      <iframe src="index2.html" width="410px" height="410px"></iframe>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 text-left">
+      <h5>Pixels have 3 color channels, red, green, and blue, each with 256 possible values.
+      <br/>Therefore pixels have 256 to the power of 3 (which is 16,777,216) possible colors.</h5>
+
+      <h5>This 4x4 pixel image has 256 to the power of 48 unique combinations.
+      <br/>That is about equal the number 4 followed by one hundred and fifteen zeros.
+      <br/>For comparison ten billion is only 1 followed by ten zeros.</h5>
+
+      <h5>It loops through all 16,777,216 colors for the first pixel before it changes any colors in the second pixel.
+      <br/>And it loops through all colors in the second pixel before changing the third, and so on and so forth.</h5>
+
+      <h5>This image will update around 60 times a second.
+      <br/>It will take about 1 followed by one hundred and eight zeros years to complete.</h5>
+
+      <h5>Scientists <a href='http://phys.org/news/2015-06-cosmic-stickiness-favors-big-rip.html'>estimate</a> the universe will end in about 2 followed by ten zeros years.</h5>
+
+      <h5>You can see the <a href='http://phys.org/news/2015-06-cosmic-stickiness-favors-big-rip.html'>code</a> on github</h5>
+
+    </div>
+  </div>
+
+<div>
 </body>
 </html>

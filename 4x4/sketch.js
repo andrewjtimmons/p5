@@ -1,9 +1,25 @@
-// the goal of this prototype is to have a box
-// iterate over 256**3 colors
-// and then increment the box next to it.
+// Show all possible color combinatinos for a 4x4 grid.
+//
+// Each color has 256**3 possible combinations
+// This means this 4x4 grid has 256**48 combinations
+// At 60 fps this takes 4.26666 seconds (256/60) to loop through the red color
+// channel of the first square.
+// That means it takes (256**3/60) seconds to loop through the first square.
+//
+// For all squares it will take
+// 256**(3*16)/60 = 6.567001e+113 seconds
+// 256**(3*16)/60/60 = 1.0945e+112 hours
+// 256**(3*16)/60/60/24 = 4.560417e+110 days
+// 256**(3*16)/60/60/24/365 = 1.249429e+108 years
+//
+//
+// For refernce the universe will probably die in the big rip in about 20
+// billion years
+// http://phys.org/news/2015-06-cosmic-stickiness-favors-big-rip.html
+
 "use strict";
 
-var colorValueIncrease = 127
+var colorValueIncrease = 1
 var density = 10
 var fillColor
 var rectangleArray
@@ -114,7 +130,6 @@ function getRandomColorRGB() {
   return color(r,g,b,255)
 }
 
-
-// This is raise an error in the console, but is needed for our testing.
+// This is raise an error in the console, but is needed for  testing.
 // The error it fires on index.html will not effect the sketch or cause failure.
 module.exports.colorRectangle = colorRectangle;

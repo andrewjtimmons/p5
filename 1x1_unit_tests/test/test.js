@@ -10,13 +10,14 @@ describe('these are my first tests for p5js', function() {
 
   // it() lets you comment on what an individual test is about.
   it('should be a string', function(done) {
-    // expect is the actual test.
+    // expect is the actual test.  This test checks if the var is a string.
     expect(p5js).to.be.a('string');
     // done tells the program the test is complete.
     done();
   });
 
   it('should be a awesome', function(done) {
+    // This expect tests the value of the string.
     expect(p5js).to.equal('awesome');
     done();
   });

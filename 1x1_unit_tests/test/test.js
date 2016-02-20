@@ -5,10 +5,10 @@ var expect = require('chai').expect;
 // Create the variable we are going to test
 var p5js = 'awesome';
 
-// describe lets you comment on what this block of code is for/
+// describe lets you comment on what this block of code is for.
 describe('these are my first tests for p5js', function() {
 
-  // it() lets you comment on what an invidual test is about.
+  // it() lets you comment on what an individual test is about.
   it('should be a string', function(done) {
     // expect is the actual test.
     expect(p5js).to.be.a('string');

@@ -6,11 +6,11 @@
 // channel of the first square.
 // That means it takes (256**3/60) seconds to loop through the first square.
 //
-// For all squares it will take
-// 256**(3*16)/60 = 6.567001e+113 seconds
-// 256**(3*16)/60/60 = 1.0945e+112 hours
-// 256**(3*16)/60/60/24 = 4.560417e+110 days
-// 256**(3*16)/60/60/24/365 = 1.249429e+108 years
+// For all squares at 60 frames per second it will take
+// 256**(3*16)/60/60 = 1.0945e+112 seconds
+// 256**(3*16)/60/60/60 = 1.824167e+110 hours
+// 256**(3*16)/60/60/60/24 = 7.600696e+108 days
+// 256**(3*16)/60/60/60/24/365 = 2.082382e+106 years
 //
 //
 // For refernce the universe will probably die in the big rip in about 20

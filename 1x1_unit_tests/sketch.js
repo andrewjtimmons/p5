@@ -7,15 +7,16 @@
 // fillColor will be the color of the rectangle.
 // rectangle will become an instance of our Rectangle class.
 
-var colorValueIncrease = 1
-var fillColor
-var rectangle
+var colorValueIncrease = 1;
+var fillColor;
+var rectangle;
 
 function setup() {
   createCanvas(500, 500);
   background(0);
   fillColor = color(0, 0, 0, 255);
   noStroke();
+  rectangle = new colorRectangle(0, 0, 500, 500, colorValueIncrease);
 }
 
 function draw() {
@@ -41,3 +42,14 @@ function draw() {
     fillColor.levels[2] = 0;
   }
 }
+
+function colorRectangle(xCoord, yCoord, rectWidth, rectHeight, colorValueIncrease) {
+  // class for holding data on our rectangle
+  this.xCoord = xCoord;
+  this.yCoord = yCoord;
+  this.rectWidth = rectWidth;
+  this.rectHeight = rectHeight;
+  this.colorValueIncrease = colorValueIncrease;
+}
+
+module.exports.colorRectangle = colorRectangle;

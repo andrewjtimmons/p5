@@ -1,24 +1,20 @@
 // Import the expect library.
 var expect = require('chai').expect;
-//var colorRectangle = require('../sketch').colorRectangle;
+// Import our rectangle class
+var colorRectangle = require('../sketch').colorRectangle;
 
-// Create the variable we are going to test
-var p5js = 'awesome';
+describe('colorRectangle tests', function() {
 
-// describe lets you comment on what this block of code is for.
-describe('these are my first tests for p5js', function() {
-
-  // it() lets you comment on what an individual test is about.
-  it('should be a string', function(done) {
-    // expect is the actual test.  This test checks if the var is a string.
-    expect(p5js).to.be.a('string');
-    // done tells the program the test is complete.
-    done();
+  // beforeEach is a special function that is similar to the setup function in
+  // p5.js.  The major difference it that this function runs before each it()
+  // test you create instead of running just once before the draw loop
+  // beforeEach lets you setup the objects you want to test in an easy fasion.
+  beforeEach(function () {
+      testRect = new colorRectangle()
   });
 
-  it('should be a awesome', function(done) {
-    // This expect tests the value of the string.
-    expect(p5js).to.equal('awesome');
+  it('should be an object', function(done) {
+    expect(testRect).to.be.a('object');
     done();
   });
 

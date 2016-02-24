@@ -5,16 +5,18 @@
 // colorValueIncrease sets the amount the color changes on each
 // draw loop. Values greater than 255 will break the sketch.
 // fillColor will be the color of the rectangle.
-// rectangle will become an instance of our Rectangle class.
+// rectangle will become an instance of our ColorIncreaser class.
 
 var colorValueIncrease = 33
 var fillColor
+var colorIncreaser
 
 function setup() {
   createCanvas(500, 500);
   background(0);
   fillColor = color(0, 0, 0, 255);
   noStroke();
+  colorIncreaser = new ColorIncreaser(colorValueIncrease);
 }
 
 function draw() {
@@ -40,3 +42,11 @@ function draw() {
     fillColor.levels[2] = 0;
   }
 }
+
+function ColorIncreaser(colorValueIncrease) {
+  // Stores a value and a color and allows you to increase the color
+  // by that value.
+  this.colorValueIncrease = colorValueIncrease
+}
+
+module.exports.ColorIncreaser = ColorIncreaser;

@@ -1,24 +1,29 @@
 // Import the expect library.  This is what allows us to check our code.
 // You can check out the full documentation at http://chaijs.com/api/bdd/
 var expect = require('chai').expect;
+// Import our rectangle class
+var ColorIncreaser = require('../sketch').ColorIncreaser;
 
-// Create the variable we are going to test
-var p5js = 42;
+describe('ColorIncreaser tests', function() {
 
-// describe lets you comment on what this block of code is for.
-describe('these are my first tests for p5js', function() {
+  // beforeEach is a special function that is similar to the setup function in
+  // p5.js.  The major difference it that this function runs before each it()
+  // test you create instead of running just once before the draw loop
+  // beforeEach lets you setup the objects you want to test in an easy fasion.
+  beforeEach(function() {
+      var colorValueIncrease = 1;
+      colorIncreaser = new ColorIncreaser(colorValueIncrease);
+  });
 
-  // it() lets you comment on what an individual test is about.
-  it('should be a string', function(done) {
-    // expect is the actual test.  This test checks if the var is a string.
-    expect(p5js).to.be.a('string');
-    // done tells the program the test is complete.
+  it('should be an object', function(done) {
+    expect(colorIncreaser).to.be.a('object');
     done();
   });
 
-  it('should be a awesome', function(done) {
-    // This expect tests the value of the string.
-    expect(p5js).to.equal('awesome');
+  it('should store initial values without mutation', function(done) {
+    expect(colorIncreaser.colorValueIncrease).to.be.equal(1);
     done();
   });
+
 });
+

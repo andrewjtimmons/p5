@@ -3,6 +3,14 @@ var expect = require('chai').expect;
 // Import our rectangle class
 var colorRectangle = require('../sketch').colorRectangle;
 
+function mockColor(red, green, blue) {
+    // Mock of the color class from p5
+    this.levels = [];
+    this.levels[0] = red;
+    this.levels[1] = green;
+    this.levels[2] = blue;
+}
+
 describe('colorRectangle tests', function() {
 
   // beforeEach is a special function that is similar to the setup function in
@@ -15,7 +23,9 @@ describe('colorRectangle tests', function() {
       var rectWidth = 500;
       var rectHeight = 500
       var colorValueIncrease = 1
-      testRect = new colorRectangle(xCoord, yCoord, rectWidth, rectHeight, colorValueIncrease);
+      var fillColor = new mockColor(0, 0, 0);
+      testRect = new colorRectangle(xCoord, yCoord, rectWidth, rectHeight,
+        colorValueIncrease, fillColor);
   });
 
   it('should be an object', function(done) {
@@ -29,6 +39,7 @@ describe('colorRectangle tests', function() {
     expect(testRect.rectWidth).to.equal(500);
     expect(testRect.rectHeight).to.equal(500);
     expect(testRect.colorValueIncrease).to.equal(1);
+    expect(testRect.fillColor.levels).to.equal([0, 0, 0])
     done();
   });
 

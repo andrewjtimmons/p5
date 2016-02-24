@@ -7,7 +7,7 @@
 // fillColor will be the color of the rectangle.
 // rectangle will become an instance of our ColorIncreaser class.
 
-var colorValueIncrease = 33
+var colorValueIncrease = 1;
 var fillColor
 var colorIncreaser
 
@@ -16,37 +16,41 @@ function setup() {
   background(0);
   fillColor = color(0, 0, 0, 255);
   noStroke();
-  colorIncreaser = new ColorIncreaser(colorValueIncrease);
+  colorIncreaser = new ColorIncreaser(colorValueIncrease, fillColor);
 }
 
 function draw() {
-  fill(fillColor);
+  fill(colorIncreaser.fillColor);
   rect(0, 0, 500, 500);
-
-  // increment the red value
-  fillColor.levels[0] += colorValueIncrease;
-  // If the red value is maxed out increment the green value
-  // and reset the red value.
-  if (fillColor.levels[0] > 255) {
-    fillColor.levels[0] = 0;
-    fillColor.levels[1] += colorValueIncrease;
-  }
-  // If the green value is maxed out increment the blue value
-  // and reset the green value.
-  if (fillColor.levels[1] > 255) {
-    fillColor.levels[1] = 0;
-    fillColor.levels[2] += colorValueIncrease;
-  }
-  // If the blue value is maxed out reset the green value.
-  if (fillColor.levels[2] > 255) {
-    fillColor.levels[2] = 0;
-  }
+  colorIncreaser.increaseFillColor()
 }
 
-function ColorIncreaser(colorValueIncrease) {
+function ColorIncreaser(colorValueIncrease, fillColor) {
   // Stores a value and a color and allows you to increase the color
   // by that value.
-  this.colorValueIncrease = colorValueIncrease
+  this.colorValueIncrease = colorValueIncrease;
+  this.fillColor = fillColor;
+}
+
+ColorIncreaser.prototype.increaseFillColor = function() {
+  // increase the first color channel by one.  If that channel
+  // is now > 255 then increment the next color channel.  Repeat for second
+  // and third channel
+
+  this.fillColor.levels[0] += this.colorValueIncrease
+  this.numColorsSoFar += 1
+
+  if (this.fillColor.levels[0] > 255) {
+    this.fillColor.levels[0] = 0
+    this.fillColor.levels[1] += this.colorValueIncrease
+  }
+  if (this.fillColor.levels[1] > 255) {
+    this.fillColor.levels[1] = 0
+    this.fillColor.levels[2] += this.colorValueIncrease
+  }
+  if (this.fillColor.levels[2] > 255) {
+    this.fillColor.levels[2] = 0;
+  }
 }
 
 module.exports.ColorIncreaser = ColorIncreaser;

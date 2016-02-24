@@ -7,7 +7,7 @@
 // fillColor will be the color of the rectangle.
 // rectangle will become an instance of our Rectangle class.
 
-var colorValueIncrease = 1
+var colorValueIncrease = 33
 var fillColor
 
 function setup() {

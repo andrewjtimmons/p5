@@ -5,7 +5,7 @@
 // colorValueIncrease sets the amount the color changes on each
 // draw loop. Values greater than 255 will break the sketch.
 // fillColor will be the color of the rectangle.
-// rectangle will become an instance of our ColorIncreaser class.
+// colorIncreaser will become an instance of our ColorIncreaser class.
 
 var colorValueIncrease = 1;
 var fillColor

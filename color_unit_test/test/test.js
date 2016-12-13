@@ -1,7 +1,7 @@
 // Import the expect library.  This is what allows us to check our code.
 // You can check out the full documentation at http://chaijs.com/api/bdd/
 var expect = require('chai').expect;
-// Import our rectangle class
+// Import our colorIncreaser class
 var ColorIncreaser = require('../sketch').ColorIncreaser;
 
 function mockColor(red, green, blue, alpha) {
